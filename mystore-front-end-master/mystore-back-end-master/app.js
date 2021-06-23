@@ -5,7 +5,7 @@ const cors = require('cors');
 const authenticate = require('./api/middleware/authenticate');
 
 mongoose.connect('mongodb+srv://'+ process.env.MONGODB_USERNAME +':'+ process.env.MONGODB_PASSWORD +'@cluster0-axd8v.mongodb.net/mystore?retryWrites=true&w=majority', {useNewUrlParser: true});
-
+//mongoose.connect('mongodb://localhost/ecommerce');
 const adminRoutes = require('./api/routes/admins');
 const categoryRoutes = require('./api/routes/categories');
 const userRoutes = require('./api/routes/users');

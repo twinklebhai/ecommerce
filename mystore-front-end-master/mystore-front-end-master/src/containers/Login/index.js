@@ -36,7 +36,7 @@ class Login extends Component {
 
     loginHandler = (e) => {
         e.preventDefault();
-
+// it will execute after every login call to the database
         if(this.state.email === ''){
             this.setError(true, 'Enter Email'); return;
         }

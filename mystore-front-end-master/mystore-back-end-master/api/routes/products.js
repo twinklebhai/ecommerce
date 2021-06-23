@@ -6,36 +6,6 @@ const Category = require('../models/category');
 const authenticate = require('../middleware/authenticate');
 
 
-router.post('/create', authenticate, (req, res, next) => {
-
-    const slug = req.body.name.replace(/ /g, '-') +'-'+ Date.now();
-
-    const product = new Product({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        slug: slug,
-        price: req.body.price,
-        stock: req.body.stock,
-        description: req.body.description,
-        productPic: req.body.productPic,
-        keyword: req.body.keyword,
-        category: req.body.category,
-        createdBy: req.body.createdBy
-    });
-
-    product.save()
-    .then(product => {
-        res.status(201).json({
-            message: product
-        });
-    })
-    .catch(er => {
-        res.status(500).json({
-            error: er
-        });
-    })
-
-});
 
 router.get('/', (req, res, next) => {
 
@@ -51,6 +21,7 @@ router.get('/', (req, res, next) => {
         res.status(500).json({
             error: er
         });
+        
     })
 
 });
